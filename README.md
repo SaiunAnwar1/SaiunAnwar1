@@ -1,16 +1,11 @@
-// connect to the extension
-await window.arweaveWallet.connect(
-  // request permissions to read the active address
-  ["ACCESS_ADDRESS"],
-  // provide some extra info for our app
-  {
-    name: "Super Cool App",
-    logo: "https://arweave.net/jAvd7Z1CBd8gVF2D6ESj7SMCCUYxDX_z3vpp5aHdaYk",
-  },
-  // custom gateway
-  {
-    host: "g8way.io",
-    port: 443,
-    protocol: "https",
-  }
-);
+// Connect to the Arweave wallet extension, requesting the SIGNATURE permission
+await window.arweaveWallet.connect(["SIGNATURE"]);
+
+// Sign the data using the wallet's signature method
+const signature = await window.arweaveWallet.signature(new TextEncoder().encode("Data to sign"), {
+  name: 'RSA-PSS', // Use the RSA-PSS algorithm for signing
+  saltLength: 0,   // Set the salt length to 0
+});
+
+// Log the generated signature to the console
+console.log("The signature is", signature);
