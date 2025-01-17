@@ -1,16 +1,16 @@
-## Hi there 👋
-
-<!--
-**SaiunAnwar1/SaiunAnwar1** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+// connect to the extension
+await window.arweaveWallet.connect(
+  // request permissions to read the active address
+  ["ACCESS_ADDRESS"],
+  // provide some extra info for our app
+  {
+    name: "Super Cool App",
+    logo: "https://arweave.net/jAvd7Z1CBd8gVF2D6ESj7SMCCUYxDX_z3vpp5aHdaYk",
+  },
+  // custom gateway
+  {
+    host: "g8way.io",
+    port: 443,
+    protocol: "https",
+  }
+);
